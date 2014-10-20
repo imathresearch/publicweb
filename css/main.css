@@ -1392,22 +1392,22 @@ span.color-red {
   margin-left: -16px;
   font-size: 2.2em;
 }
-.press-wired a:after {
+.press-lavanguardia a:after {
   background-position: 0px 0px;
 }
-.press-wired a:hover:after {
+.press-lavanguardia a:hover:after {
   background-position: 0px -32px;
 }
-.press-mashable a:after {
+.press-eleconomista a:after {
   background-position: -120px 0px;
 }
-.press-mashable a:hover:after {
+.press-eleconomista a:hover:after {
   background-position: -120px -32px;
 }
-.press-techcrunch a:after {
+.press-cincodias a:after {
   background-position: -240px 0px;
 }
-.press-techcrunch a:hover:after {
+.press-cincodias a:hover:after {
   background-position: -240px -32px;
 }
 /*--------------------------------------------------------------------------
