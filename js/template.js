@@ -37,17 +37,19 @@ $(document).ready(function(){
 	$('.show-tooltip').tooltip();
 
 	//Contact Us Map
+	/*
 	if($('#contact-us-map').length > 0){ //Checks if there is a map element
+		var map = L.map('contact-us-map').setView([51.505, -0.09], 13);
 		var map = L.map('contact-us-map', {
-			center: [51.502, -0.09],
+			center: [41.497477, 2.108437],
 			scrollWheelZoom: false,
-			zoom: 15
+			zoom: 10
 		});
-		L.tileLayer('http://{s}.tile.cloudmade.com/{key}/22677/256/{z}/{x}/{y}.png', {
-			key: 'BC9A493B41014CAABB98F0471D759707'
+		L.tileLayer('http://api.tiles.mapbox.com/v4/ipinyol.k15076lb/0/0/0.png?access_token=pk.eyJ1IjoiaXBpbnlvbCIsImEiOiJNME1nNXNvIn0.Xl0LMBccMvl47VLyrZmuuQ', {
+		    attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
 		}).addTo(map);
-		L.marker([51.5, -0.09]).addTo(map).bindPopup("<b>Some Company</b><br/>123 Fake Street<br/>LN1 2ST<br/>London</br>United Kingdom").openPopup();
-	}
+		L.marker([51.505, -0.09]).addTo(map).bindPopup("<b>iMath Research S.L.</b><br/>Edifici Eureka, Campus UAB<br/>08193 - Bellaterrna (Barcelona)</br>Spain").openPopup();
+	}*/
 
 	$( window ).resize(function() {
 		$('.col-footer:eq(0), .col-footer:eq(1)').css('height', '');
