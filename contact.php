@@ -1,3 +1,36 @@
+<?php
+
+	include 'bd.php';
+
+	$name = $_POST["name"];
+	$email = $_POST["email"];
+	$organization = "";
+	$subject = $_POST["subject"];
+	$message = $_POST["message"];
+	
+	$totalMessage = "Name: " . $name . " email: " . $email . " subject: " . $subject . " message: " . $message;
+	
+	$totalMessage = wordwrap($totalMessage,70); 
+
+	include 'getQuantity.php';
+
+	$quantity++;
+	
+	if ($name != "") {
+
+    	$sql = "INSERT INTO contact ( id , username , email , organization , subject , message ) VALUES ('" . $quantity . "','" . $name . "','" . $email . "','" . $organization . "','" . $subject . "','" . $message . "')";
+
+		mysql_query($sql) or die(mysql_error());
+		
+		mail("info@imathresearch.com","Message",$totalMessage);
+		
+	}
+
+	mysql_close($link);
+
+
+?>
+
 <!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
@@ -47,97 +80,93 @@
 						<li>
 							<a href="imathcloud.html">iMath Cloud</a>
 						</li>
-						<li class="active">
+						<li>
 							<a href="services.html">Consultancy</a></li>
 						</li>
 						<li>
 							<a href="team.html">Team</a>
 						</li>
-						<li>
+						<li class="active">
 							<a href="contact.php">Contact</a>
 						</li>
 					</ul>
 				</nav>
 			</div>
 		</div>
-
+        
         <!-- Page Title -->
 		<div class="section section-breadcrumbs">
 			<div class="container">
 				<div class="row">
-					<div class="col-md-12">
-						<h1>Our Services</h1>
+					<div class="col-md-6">
+						<h1>Contact Us</h1>
 					</div>
 				</div>
 			</div>
 		</div>
         
         <div class="section">
-	        <div class="container">
-	        	<div class="row service-wrapper-row">
-        			<div class="col-sm-4">
-        				<div class="service-image">
-        					<img src="img/service1.jpg" alt="Service Name">
-        				</div>
-        			</div>
-        			<div class="col-sm-8">
-    					<h3>HPC and Parallel Computing in the Cloud</h3>
-    					<p>
-    					Do you use math technology? Do you use scientific and technical software like Python, R, Matlab, Octave etc.? Are your scripts very time consuming? Do you run out of memory and bandwidth? Do you have problems sharing your results and data?
-    					Get into the Cloud Processing paradigm, as simple as this:
-    					</p>
-    					<ol>
-  							<li>Upload your scripts and initial data</li>
-  							<li>Execute them as if they were in your local machine</li>
-  							<li>Check the status of your executions, and receive notifications</li>
-  							<li>Visualize the results, share them, or download them</li>
-						</ol>  
-    					<a href="contact.html" class="btn">Contact us</a>
-    				</div>
-				</div>
-				<div class="row service-wrapper-row">
-        			<div class="col-sm-4">
-        				<div class="service-image">
-        					<img src="img/service2.jpg" alt="Service Name">
-        				</div>
-        			</div>
-        			<div class="col-sm-8">
-    					<h3>Big Data Projects</h3>
-    					<p>
-    						Do you need to analyze thousands of tweets per minute? Do you need to analyze facebook messages for a long period of time? Do you need to access data sets of more than 10 Terabytes, or cross-check multiple huge databases? We put BIG DATA at a glance.  
-    					</p>
-    					<ul>
-    						<li>We use the latest technology: Hadoop, Spark, MongoDB</li>
-    						<li>Outsourcing services or local installations</li>
-    						<li>We have special solutions for SMEs</li>
-    						<li>Integral solutions: From data capture to processing and visualization</li>
-    					</ul>
-    					<a href="contact.html" class="btn">Contact us</a>
-    				</div>
-				</div>
-				<div class="row service-wrapper-row">
-        			<div class="col-sm-4">
-        				<div class="service-image">
-        					<img src="img/service3.jpg" alt="Service Name">
-        				</div>
-        			</div>
-        			<div class="col-sm-8">
-    					<h3>Predictive Modeling and Integration</h3>
-    					<p>
-    					Building predictive empirical models has never been so simple. We provide numerical and/or categorical predictive models from past empirical experiences, together with confidence measures for the prediction:
-						<p>
-						<ol>
-							<li>Upload your independent variables and associated past data</li>
-							<li>Upload your dependent variables to be predicted and associated past data</li>
-							<li>Run our predictive engine in the Cloud</li>
-							<li>Test the models</li>
-							<li>Check for the best performances, best confidence measures, error analysis, etc.</li>
-							<li>Integrate the model into your production environment, or let us do it for you!</li>
-						</ol>
-						<a href="contact.html" class="btn">Contact us</a>
-    				</div>
-				</div>
-	        </div>
+	    	<div class="container">
+	        	<div class="row">
+	        		<div class="col-sm-7">
+	        			<!-- Map -->
+	        			<div id="contact-us-map">
+							<iframe width='100%' height='310px' frameBorder='0' src='https://a.tiles.mapbox.com/v4/ipinyol.k15076lb/attribution,zoompan,zoomwheel,geocoder.html?access_token=pk.eyJ1IjoiaXBpbnlvbCIsImEiOiJNME1nNXNvIn0.Xl0LMBccMvl47VLyrZmuuQ'></iframe>
+	        			</div>
+	        			<!-- End Map -->
+	        			<!-- Contact Info -->
+	        			<p class="contact-us-details">
+	        				<b>Address:</b> Edifici Eureka, Campus UAB, 08193 - Bellaterra (Barcelona), SPAIN<br/>
+	        				<b>Phone:</b>(+34)935868743<br/>
+	        				<b>Email:</b> <a href="mailto:info@imathresearch.com">info@imathresearch.com</a>
+	        			</p>
+	        			<!-- End Contact Info -->
+	        		</div>
+	        		<div class="col-sm-5">
+	        			<!-- Contact Form -->
+	        			<h3>Send Us a Message</h3>
+	        			<div class="contact-form-wrapper">
+		        			<form method="post" class="form-horizontal" role="form">
+		        				 <div class="form-group">
+		        				 	<label for="Name" class="col-sm-3 control-label"><b>Your name</b></label>
+		        				 	<div class="col-sm-9">
+										<input class="form-control" id="Name" name="name" type="text" placeholder="">
+									</div>
+								</div>
+								<div class="form-group">
+									<label for="contact-email" class="col-sm-3 control-label"><b>Your Email</b></label>
+									<div class="col-sm-9">
+										<input class="form-control" id="contact-email" name="email" type="text" placeholder="">
+									</div>
+								</div>
+								<div class="form-group">
+									<label for="contact-message" class="col-sm-3 control-label"><b>Select Topic</b></label>
+									<div class="col-sm-9">
+										<select class="form-control" id="prependedInput" name="subject">
+											<option>Please select topic...</option>
+											<option>iMath Cloud</option>
+											<option>Services</option>
+											<option>General</option>
+										</select>
+									</div>
+								</div>
+								<div class="form-group">
+									<label for="contact-message" class="col-sm-3 control-label"><b>Message</b></label>
+									<div class="col-sm-9">
+										<textarea class="form-control" name="message" rows="5" id="contact-message"></textarea>
+									</div>
+								</div>
+								<div class="form-group">
+									<div class="col-sm-12">
+										<button type="submit" class="btn pull-right">Send</button>
+									</div>
+								</div>
+		        			</form>
+		        		</div>
+		        		<!-- End Contact Info -->
+	        		</div>
+	        	</div>
+	    	</div>
 	    </div>
         
 	    <!-- Footer -->
