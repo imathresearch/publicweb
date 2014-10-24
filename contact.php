@@ -18,7 +18,8 @@
 	
 	if ($name != "") {
 		
-    	$sql = "INSERT INTO contact ( id , username , email , organization , subject , message ) VALUES ('" . $quantity . "','" . $name . "','" . $email . "','" . $organization . "','" . $subject . "','" . $message . "')";
+           	$sql = "INSERT INTO contact ( id , username , email , organization , subject , message ) VALUES ('" . $quantity . "','" . 
+$name . "','" . $email . "','" . $organization . "','" . $subject . "','" . $message . "')";
 
 		mysql_query($sql) or die(mysql_error());
 		
@@ -228,7 +229,7 @@
 	    </div>
 	    <?php
     	if($posted ) {
-			echo "<script type='text/javascript'>$("#myModal").modal('show');</script>";
+			echo "<script type='text/javascript'>$('#myModal').modal('show');</script>";
       	  }
   		?>
     </body>
