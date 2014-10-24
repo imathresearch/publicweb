@@ -60,12 +60,7 @@
             <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
         <![endif]-->
         
-	<?php
-    	if($posted ) {
-			echo "<script type='text/javascript'>$("#myModal").modal('show');</script>";
-        }
-  	?>
-        <!-- Navigation & Logo-->
+	    <!-- Navigation & Logo-->
         <div class="mainmenu-wrapper">
 	        <div class="container">
 	        	<div class="menuextras">
@@ -231,5 +226,10 @@
 	            </div>
     	    </div>
 	    </div>
+	    <?php
+    	if($posted ) {
+			echo "<script type='text/javascript'>$("#myModal").modal('show');</script>";
+      	  }
+  		?>
     </body>
 </html>
