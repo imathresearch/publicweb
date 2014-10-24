@@ -13,17 +13,17 @@
 	$totalMessage = wordwrap($totalMessage,70); 
 
 	include 'getQuantity.php';
-
+	$posted = false;
 	$quantity++;
 	
 	if ($name != "") {
-
+		
     	$sql = "INSERT INTO contact ( id , username , email , organization , subject , message ) VALUES ('" . $quantity . "','" . $name . "','" . $email . "','" . $organization . "','" . $subject . "','" . $message . "')";
 
 		mysql_query($sql) or die(mysql_error());
 		
 		mail("info@imathresearch.com","Message",$totalMessage);
-		
+		$posted = true;
 	}
 
 	mysql_close($link);
@@ -60,7 +60,11 @@
             <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
         <![endif]-->
         
-
+	<?php
+    	if($posted ) {
+			echo "<script type='text/javascript'>$("#myModal").modal('show');</script>";
+        }
+  	?>
         <!-- Navigation & Logo-->
         <div class="mainmenu-wrapper">
 	        <div class="container">
@@ -208,6 +212,24 @@
         <script src="js/jquery.bxslider.js"></script>
         <script src="js/main-menu.js"></script>
         <script src="js/template.js"></script>
-
+        
+        <!-- The modal form -->
+		<div id="myModal" class="modal fade">
+        	<div class="modal-dialog">
+            	<div class="modal-content">
+                	<div class="modal-header">
+                    	<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    	<h4 class="modal-title">Confirmation</h4>
+                	</div>
+               		<div class="modal-body">
+                	    <p>Your message has been sent. We will contact you shortly.</p>
+            	        <p class="text-warning"><small>Thanks for your interest.</small></p>
+        	        </div>
+    	            <div class="modal-footer">
+	                    <button type="button" class="btn btn-default" data-dismiss="modal">OK</button>
+	                </div>
+	            </div>
+    	    </div>
+	    </div>
     </body>
 </html>
